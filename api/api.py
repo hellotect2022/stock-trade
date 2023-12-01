@@ -8,8 +8,7 @@ from urllib.parse import urlencode, unquote
 class Auth_class():
 
     def __init__(self):
-        res = self.test()
-        print(f"res :{res}")
+        self.test()
 
     def test(self):
         try:
@@ -37,6 +36,7 @@ class Auth_class():
 
             res = requests.get(server_url + '/v1/accounts',  headers=headers)
             res.json()
+            print("result",res.json())
 
         except Exception as e:
             print(e)

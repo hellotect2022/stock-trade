@@ -1,6 +1,7 @@
 import jwt  # PyJWT
 import uuid
 import websocket  # websocket-client
+from key.KeyClass import KeyClass
 
 class Api2_class():
     def __init__(self):
@@ -9,7 +10,7 @@ class Api2_class():
     def init(self):
         
         payload = {
-            'access_key': "",
+            'access_key': KeyClass().getAccessKey(),
             'nonce': str(uuid.uuid4()),
         }
 
@@ -39,7 +40,7 @@ class Api2_class():
 
 
     def on_error(self, ws, err):
-        print(err)
+        print(f"on_error : {err}")
 
 
     def on_close(self,ws, status_code, msg):
